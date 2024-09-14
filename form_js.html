@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Form</title>
+    <script>
+        function confirmAndValidate(field) {
+            if (confirm('Do you want to change this field?')) {
+                field.onclick = function () {
+                    alert('Field clicked.');
+                }
+                validateField(field);
+            }
+        }
+        function validateField(field) {
+            if (field.value.trim() === '') {
+                alert('Invalid value. Please provide a valid input.');
+                field.classList.add('is-invalid');
+                field.classList.remove('is-valid');
+            } else {
+                alert('Field value successfully updated.');
+                field.classList.add('is-valid');
+                field.classList.remove('is-invalid');
+            }
+        }
+        function displayMessage(message) {
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.innerText = message;
+        }
+        function enlargeButton(button) {
+            button.style.backgroundColor = '#80d4ff';
+            button.style.transform = 'scale(1.1)';
+        }
+        function shrinkButton(button) {
+            button.style.backgroundColor = '#007bff';
+            button.style.transform = 'scale(1)';
+        }
+        function handleKeydown(field) {
+            field.onkeydown = function (e) {
+                displayMessage(`Key pressed: ${e.key} in field ${field.id}`);
+            }
+        }
+        function addEventListeners() {
+            const fields = document.querySelectorAll('input, select');
+
+            fields.forEach(field => {
+                field.onclick = function () {
+                    confirmAndValidate(field);
+                };
+                field.onchange = function () {
+                    displayMessage(`${field.id} value changed to ${field.value}`);
+                };
+                handleKeydown(field);
+            });
+            const submitBtn = document.querySelector('.checkout-btn');
+            submitBtn.onmouseover = function () {
+                enlargeButton(submitBtn);
+            };
+            submitBtn.onmouseout = function () {
+                shrinkButton(submitBtn);
+            };
+        }
+        window.onload = function () {
+            addEventListeners();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <div class="header">
+                <div class="icon">
+                    <img src="bootstrap-logo.png" alt="Bootstrap Logo" class="bootstrap-logo">
+                </div>
+                <h2>Checkout form</h2>
+                <p>Below is an example form built entirely with Bootstrap’s form controls. Each required form group has
+                    a validation state that can be triggered by attempting to submit the form without completing it.</p>
+            </div>
+            <div class="cart">
+                <h4>Your cart</h4>
+                <ul>
+                    <li>
+                        <div>
+                            <h6>Product name</h6>
+                            <small>Brief description</small>
+                        </div>
+                        <span>$12</span>
+                    </li>
+                    <li>
+                        <div>
+                            <h6>Second product</h6>
+                            <small>Brief description</small>
+                        </div>
+                        <span>$8</span>
+                    </li>
+                    <li>
+                        <div>
+                            <h6>Third item</h6>
+                            <small>Brief description</small>
+                        </div>
+                        <span>$5</span>
+                    </li>
+                    <li>
+                        <div>
+                            <h6>Promo code</h6>
+                            <small>EXAMPLECODE</small>
+                        </div>
+                        <span>−$5</span>
+                    </li>
+                    <li class="total">
+                        <span>Total (USD)</span>
+                        <strong>$20</strong>
+                    </li>
+                </ul>
+                <form class="promo-form">
+                    <input type="text" placeholder="Promo code">
+                    <button type="submit">Redeem</button>
+                </form>
+            </div>
+            <div class="billing">
+                <h4>Billing address</h4>
+                <form class="billing-form needs-validation">
+                    <div class="row">
+                        <div class="col">
+                            <label for="firstName">First name</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="lastName">Last name</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="username">Username</label>
+                            <div class="input-group">
+                                <span>@</span>
+                                <input type="text" id="username" class="form-control" placeholder="Username" required>
+                                <div class="invalid-feedback">
+                                    Your username is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="email">Email <span>(Optional)</span></label>
+                            <input type="email" id="email" class="form-control" placeholder="you@example.com">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" class="form-control" placeholder="1234 Main St" required>
+                            <div class="invalid-feedback">
+                                Please enter your shipping address.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="address2">Address 2 <span>(Optional)</span></label>
+                            <input type="text" id="address2" class="form-control" placeholder="Apartment or suite">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="country">Country</label>
+                            <select id="country" class="form-select">
+                                <option value="">Choose...</option>
+                                <option>United States</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="state">State</label>
+                            <select id="state" class="form-select">
+                                <option value="">Choose...</option>
+                                <option>California</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="zip">Zip</label>
+                            <input type="text" id="zip" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Zip code required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="same-address">Shipping address is the same as my billing address</label>
+                            <input type="checkbox" id="same-address" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="save-info">Save this information for next time</label>
+                            <input type="checkbox" id="save-info" class="form-check-input">
+                        </div>
+                    </div>
+                    <h4>Payment</h4>
+                    <div class="row">
+                        <div class="payment">
+                            <input type="radio" id="credit" name="payment" class="form-check-input" checked required>
+                            <label for="credit">Credit card</label><br>
+                            <input type="radio" id="debit" name="payment" class="form-check-input" required>
+                            <label for="debit">Debit card</label><br>
+                            <input type="radio" id="paypal" name="payment" class="form-check-input" required>
+                            <label for="paypal">PayPal</label>
+                            <div class="invalid-feedback">
+                                Please select a payment method.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="cc-name">Name on card</label>
+                            <input type="text" id="cc-name" class="form-control" required>
+                            <small>Full name as displayed on card</small>
+                            <div class="invalid-feedback">
+                                Name on card is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="cc-number">Credit card number</label>
+                            <input type="text" id="cc-number" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Credit card number is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="cc-expiration">Expiration</label>
+                            <input type="text" id="cc-expiration" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Expiration date required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col full">
+                            <label for="cc-cvv">CVV</label>
+                            <input type="text" id="cc-cvv" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Security code required.
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="checkout-btn">Continue to checkout</button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2017–2022 Company Name</p>
+            <ul>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+    <div id="message-container"
+        style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc;">
+        Event messages will appear here.
+    </div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            margin: 0 auto;
+        }
+
+        header,
+        main {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h2,
+        h4 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 40px;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li.total {
+            border-top: 2px solid #000;
+            font-weight: bold;
+        }
+
+        form input,
+        form select,
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group span {
+            padding: 10px;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .bootstrap-logo {
+            width: 50px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .full {
+            flex: 100%;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .promo-form {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .promo-form input {
+            flex: 70%;
+        }
+
+        .promo-form button {
+            flex: 30%;
+        }
+
+        #message-container {
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</body>
+
+</html>
