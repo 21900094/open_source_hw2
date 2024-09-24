@@ -1,11 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>edit.html</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./my.css" />
+    <title>Edit Product</title>
 </head>
+
 <body>
-    edit
+    <header>
+        <div class="logo"><i class="fa-regular fa-shopping-basket"></i> Edit Product</div>
+    </header>
+
+    <section class="first_section">
+        <div class="container">
+            <h2>Edit Product</h2>
+        </div>
+    </section>
+
+    <section class="form_section">
+        <div class="container">
+            <form id="productForm" onsubmit="return validateForm()">
+                <div class="form_group">
+                    <label for="name">Product Name:</label>
+                    <!-- Pre-filled value -->
+                    <input type="text" id="name" name="name" value="Beaf" />
+                </div>
+                <div class="form_group">
+                    <label for="description">Description:</label>
+                    <!-- Pre-filled value -->
+                    <input type="text" id="description" name="description" value="상품 상세설명입니다" />
+                </div>
+                <div class="form_group">
+                    <label for="price">Price:</label>
+                    <!-- Pre-filled value -->
+                    <input type="text" id="price" name="price" value="15000" />
+                </div>
+                <div class="form_group">
+                    <label for="discount">Discount:</label>
+                    <!-- Pre-filled value -->
+                    <input type="text" id="discount" name="discount" value="30" />
+                </div>
+                <div class="form_group">
+                    <label for="purchaseDate">Purchase Date:</label>
+                    <!-- Pre-filled value -->
+                    <input type="date" id="purchaseDate" name="purchaseDate" value="2023-09-11" />
+                </div>
+                <div class="form_group">
+                    <label for="category">Category:</label>
+                    <!-- Pre-filled value -->
+                    <select id="category" name="category">
+                        <option value="food" selected>Food</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="electronics">Electronics</option>
+                    </select>
+                </div>
+                <div class="form_group">
+                    <label for="satisfaction">Satisfaction:</label>
+                    <!-- Pre-filled value -->
+                    <select id="satisfaction" name="satisfaction">
+                        <option value="perfect" selected>Perfect</option>
+                        <option value="nice">Nice</option>
+                        <option value="bad">Bad</option>
+                        <option value="very bad">Very Bad</option>
+                    </select>
+                </div>
+                <div class="form_buttons">
+                    <button type="submit" class="main_btn">Confirm</button>
+                    <button type="button" class="secondary_btn" onclick="location.href='index.html'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+    </footer>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const price = document.getElementById('price').value;
+            const discount = document.getElementById('discount').value;
+            const category = document.getElementById('category').value;
+            const satisfaction = document.getElementById('satisfaction').value;
+
+            // Validate product name
+            if (name === "") {
+                alert("Product name is required.");
+                return false;
+            }
+
+            // Validate description
+            if (description === "") {
+                alert("Description is required.");
+                return false;
+            }
+
+            // Validate price (must be a number)
+            if (price === "" || isNaN(price)) {
+                alert("Please enter a valid price.");
+                return false;
+            }
+
+            // Validate discount (must be a number if provided)
+            if (discount !== "" && isNaN(discount)) {
+                alert("Please enter a valid discount (numbers only).");
+                return false;
+            }
+
+            // Validate category selection
+            if (category === "") {
+                alert("Please select a category.");
+                return false;
+            }
+
+            // Validate satisfaction selection
+            if (satisfaction === "") {
+                alert("Please select a satisfaction level.");
+                return false;
+            }
+
+            // Confirm editing the post
+            const result = confirm("게시물을 수정할까요?");
+            if (!result) {
+                return false; // Prevent form submission if the user cancels
+            }
+
+            return true; // Submits the form if everything is valid
+        }
+    </script>
+
+    <script src="https://kit.fontawesome.com/6b5dc2591f.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

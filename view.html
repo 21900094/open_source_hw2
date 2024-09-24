@@ -1,11 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>view.html</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./my.css" />
+    <title>View Product</title>
 </head>
+
 <body>
-    view.html
+    <header>
+        <div class="logo"><i class="fa-regular fa-shopping-basket"></i> View Product</div>
+    </header>
+    
+
+    <section class="first_section">
+        <div class="container">
+            <h2>Product Details</h2>
+        </div>
+    </section>
+
+    <section class="view_section">
+            <div class="card">
+                <div class="card_content">
+                    <div class="card_text">Product Name: <span>Beaf</span></div>
+                    <div class="card_text">Description: <span>상품 상세설명입니다</span></div>
+                    <div class="card_text">Price: <span>15,000원</span></div>
+                    <div class="card_text">Discount: <span>30%</span></div>
+                    <div class="card_text">Purchase Date: <span>09/11</span></div>
+                    <div class="card_text">Category: <span>음식</span></div>
+                    <div class="card_text">Satisfaction: <span>Perfect</span></div>
+                </div>
+            </div>
+
+            <div class="buttons_section">
+                <button class="edit_btn" onclick="location.href='edit.html'">수정</button>
+                <button class="delete_btn" onclick="confirmDelete()">삭제</button>
+                <button class="back_btn" onclick="location.href='index.html'">목록</button>
+            </div>
+
+    </section>
+
+    <footer>
+    </footer>
+
+    <script>
+        function confirmDelete() {
+            const result = confirm("게시물을 삭제할까요?");
+            if (result) {
+                // Logic to delete the post can go here
+                alert("게시물이 삭제되었습니다.");
+                location.href = 'index.html';
+            }
+        }
+    </script>
+        <script src="https://kit.fontawesome.com/6b5dc2591f.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

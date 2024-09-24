@@ -1,29 +1,120 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./my.css" />
-    <title>shop</title>
-  </head>
-  <body>
+    <title>Add Product</title>
+</head>
+
+<body>
     <header>
-      <div class="logo"><i class="fa-regular fa-shopping-basket"></i> my shop</div>
-      <button class="header_btn"><i class="fa-solid fa-bars"></i></button>
+        <div class="logo"><i class="fa-regular fa-shopping-basket"></i> Add Product</div>
     </header>
+
     <section class="first_section">
-      <div class="container">
-        <h2>shop</h2>
+        <div class="container">
+            <h2>Add a New Product</h2>
+        </div>
+    </section>
 
-      </div>
+    <section class="form_section">
+        <div class="container">
+            <form id="productForm" onsubmit="return validateForm()">
+                <div class="form_group">
+                    <label for="name">Product Name:</label>
+                    <input type="text" id="name" name="name" />
+                </div>
+                <div class="form_group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description" />
+                </div>
+                <div class="form_group">
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" name="price" />
+                </div>
+                <div class="form_group">
+                    <label for="discount">Discount:</label>
+                    <input type="text" id="discount" name="discount" />
+                </div>
+                <div class="form_group">
+                    <label for="purchaseDate">Purchase Date:</label>
+                    <input type="date" id="purchaseDate" name="purchaseDate" />
+                </div>
+                <div class="form_group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="food">Food</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="electronics">Electronics</option>
+                    </select>
+                </div>
+                <div class="form_group">
+                    <label for="satisfaction">Satisfaction:</label>
+                    <select id="satisfaction" name="satisfaction">
+                        <option value="perfect">perfect</option>
+                     
+                       <option value="nice">nice</option>
+                        <option value="bad">bad</option>
+                        <option value="very bad">very bad</option>
+                    </select>
+                </div>
+                <div class="form_buttons">
+                    <button type="submit" class="main_btn">Confirm</button>
+                    <button type="button" class="secondary_btn" onclick="location.href='index.html'">Cancel</button>
+                </div>
+            </form>
+        </div>
     </section>
-    <section class="second_section">
-       
-    </section>
+
     <footer>
-
     </footer>
-    <script src="https://kit.fontawesome.com/6b5dc2591f.js" crossorigin="anonymous"></script>
-  </body>
+    <script>
+        function validateForm() {
+    const name = document.getElementById('name').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
+    const discount = document.getElementById('discount').value;
+    const category = document.getElementById('category').value;
+    const satisfaction = document.getElementById('satisfaction').value;
+    if (name === "") {
+        alert("Product name is required.");
+        return false;
+    }
+    if (description == "") {
+        alert("Description name is required.");
+        return false;
+    }
+
+    if (price === "" || isNaN(price)) {
+        alert("Please enter a valid price.");
+        return false;
+    }
+
+    if (discount !== "" && isNaN(discount)) {
+        alert("Please enter a valid discount (numbers only).");
+        return false;
+    }
+    // Validate category selection
+    if (category === "") {
+        alert("Please select a category.");
+        return false;
+    }
+
+    // Validate satisfaction selection
+    if (satisfaction === "") {
+        alert("Please select a satisfaction level.");
+        return false;
+    }
+
+    alert("게시물이 추가됩니다");
+    return true;  // Submits the form if everything is valid
+}
+
+    </script>
+        <script src="https://kit.fontawesome.com/6b5dc2591f.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
