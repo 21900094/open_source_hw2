@@ -20,19 +20,57 @@
             <h2>Product Details</h2>
         </div>
     </section>
+    <section class="form_section_view">
+        <div class="container" style="height: max-content;">
+            <form id="productForm" onsubmit="return validateForm()">
+                <div class="form_group">
+                    <label for="name">Product Name:</label>
 
-    <section class="view_section">
-            <div class="card">
-                <div class="card_content">
-                    <div class="card_text">Product Name: <span>Beaf</span></div>
-                    <div class="card_text">Description: <span>상품 상세설명입니다</span></div>
-                    <div class="card_text">Price: <span>15,000원</span></div>
-                    <div class="card_text">Discount: <span>30%</span></div>
-                    <div class="card_text">Purchase Date: <span>09/11</span></div>
-                    <div class="card_text">Category: <span>음식</span></div>
-                    <div class="card_text">Satisfaction: <span>Perfect</span></div>
+                    <input type="text" id="name" name="name" value="Beaf" />
                 </div>
-            </div>
+                <div class="form_group">
+                    <label for="description">Description:</label>
+          
+                    <input type="text" id="description" name="description" value="상품 상세설명입니다" />
+                </div>
+                <div class="form_group">
+                    <label for="price">Price:</label>
+             
+                    <input type="text" id="price" name="price" value="15000" />
+                </div>
+                <div class="form_group">
+                    <label for="discount">Discount:</label>
+           
+                    <input type="text" id="discount" name="discount" value="30" />
+                </div>
+                <div class="form_group">
+                    <label for="purchaseDate">Purchase Date:</label>
+         
+                    <input type="date" id="purchaseDate" name="purchaseDate" value="2023-09-11" />
+                </div>
+                <div class="form_group">
+                    <label for="category">Category:</label>
+           
+                    <select id="category" name="category">
+                        <option value="food" selected>Food</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="electronics">Electronics</option>
+                    </select>
+                </div>
+                <div class="form_group">
+                    <label for="satisfaction">Satisfaction:</label>
+             
+                    <select id="satisfaction" name="satisfaction">
+                        <option value="perfect" selected>Perfect</option>
+                        <option value="nice">Nice</option>
+                        <option value="bad">Bad</option>
+                        <option value="very bad">Very Bad</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </section>
+    
 
             <div class="buttons_section">
                 <button class="edit_btn" onclick="location.href='edit.html'">수정</button>
@@ -40,7 +78,7 @@
                 <button class="back_btn" onclick="location.href='index.html'">목록</button>
             </div>
 
-    </section>
+
 
     <footer>
     </footer>

@@ -1,5 +1,5 @@
 body {
-
+  height: max-content;
     overflow-y: auto; 
 }
 
@@ -44,6 +44,7 @@ header {
 .first_section h2 {
   font-size: 3rem;
   text-align: center;
+
 }
 .first_section p {
   font-size: 1.2rem;
@@ -106,8 +107,6 @@ header {
   border-radius: 10px;
 }
 .card_name {
-
-  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,12 +173,20 @@ footer p {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 20px auto;
+
 }
 .form_section {
     background-color: white;
     padding: 40px 150px;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.form_section_view {
+  background-color: white;
+  padding: 40px 60px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  height: 100%;
 }
 .form_group {
     margin-bottom: 20px;
@@ -225,7 +232,7 @@ footer p {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    width: 30%;
 }
 
 .edit_btn {
@@ -254,6 +261,22 @@ footer p {
 .back_btn:hover {
     background-color: #5a6a70;
 }
+.fa-plus-circle{
+  float: right;
+}
+
+
+@media(min-width:601px){
+  .view_card{
+    display: flex;
+    width: 100%;
+    background-color: gray;
+  }
+  .view_image{
+    width: 100%;
+  }
+}
+
 
 @media (max-width: 600px) {
     header {
@@ -268,11 +291,12 @@ footer p {
     }
 
     .first_section {
-        height: 120px;
+        height: 140px;
     }
 
     .first_section h2 {
         font-size: 2rem;
+        line-height: 2;
     }
 
     .first_section .container {
@@ -285,6 +309,7 @@ footer p {
         flex-direction: column;
         gap: 10px;
         max-width: 80%;
+
         justify-items: center;
     }
 
@@ -295,9 +320,7 @@ footer p {
 
     }
 
-    .card_name {
-        height: 150px;
-    }
+ 
 
     .card_content {
         padding: 15px;
@@ -324,4 +347,5 @@ footer p {
         flex-direction: column;
         text-align: center;
     }
+  
 }
