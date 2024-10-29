@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Server AJAX Practice</title>
+</head>
+<body>
+  <button id="btnStu">학생데이터 가져오기</button><br><br>
+
+  <input type="text" id="name" placeholder="name">
+  <input type="number" id="age" placeholder="age">
+  <button id="btnAdd">학생데이터 추가하기</button>
+
+  <div id="contents"></div>
+
+  <script>
+    window.onload = function () {
+      let btnStu = document.getElementById("btnStu");
+      let btnAdd = document.getElementById("btnAdd");
+      btnStu.addEventListener("click", getStudents);
+      btnAdd.addEventListener("click", postData);
+    };
+
+    function getStudents() {
+      let contents = document.getElementById("contents");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://localhost:3000/students");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send();
+
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const res = JSON.parse(xhr.response);
+          contents.innerHTML = makeList(res);
+        } else {
+          console.log(xhr.status, xhr.statusText);
+        }
+      };
+    }
+
+    function postData() {
+      let name = document.getElementById("name").value;
+      let age = document.getElementById("age").value;
+
+      if (!name || !age) {
+        alert("이름과 나이를 입력하세요.");
+        return;
+      }
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:3000/students");
+      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+      const data = { name: name, age: parseInt(age) };
+      xhr.send(JSON.stringify(data));
+
+      xhr.onload = () => {
+        if (xhr.status === 201) {
+          document.getElementById("name").value = "";
+          document.getElementById("age").value = "";
+          getStudents();
+        } else {
+          console.log(xhr.status, xhr.statusText);
+        }
+      };
+    }
+
+    function makeList(data) {
+      let str = "<ul>";
+      for (let key in data) {
+        str += "<li>" + data[key].name + " (" + data[key].age + ")</li>";
+      }
+      str += "</ul>";
+      return str;
+    }
+  </script>
+</body>
+</html>
