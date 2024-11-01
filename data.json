@@ -1,134 +1,124 @@
 {
-    "students": [
-      {
-        "name": "Sally",
-        "age": 10,
-        "id": "1"
-      },
-      {
-        "id": "2",
-        "name": "Brian Lee",
-        "age": 22,
-        "studentId": "S1002",
-        "major": "Mathematics"
-      },
-      {
-        "id": "3",
-        "name": "Chris Park",
-        "age": 21,
-        "studentId": "S1003",
-        "major": "Physics"
-      },
-      {
-        "id": "4",
-        "name": "Diana Cho",
-        "age": 23,
-        "studentId": "S1004",
-        "major": "Chemistry"
-      },
-      {
-        "id": "5",
-        "name": "Edward Kim",
-        "age": 20,
-        "studentId": "S1005",
-        "major": "Biology"
-      },
-      {
-        "id": "6",
-        "name": "Fiona Jung",
-        "age": 22,
-        "studentId": "S1006",
-        "major": "Engineering"
-      },
-      {
-        "id": "7",
-        "name": "George Choi",
-        "age": 24,
-        "studentId": "S1007",
-        "major": "Economics"
-      },
-      {
-        "id": "8",
-        "name": "Hannah Shin",
-        "age": 21,
-        "studentId": "S1008",
-        "major": "Psychology"
-      },
-      {
-        "id": "9",
-        "name": "Ian Yoo",
-        "age": 23,
-        "studentId": "S1009",
-        "major": "History"
-      },
-      {
-        "id": "10",
-        "name": "Jessica Kang",
-        "age": 20,
-        "studentId": "S1010",
-        "major": "Literature"
-      },
-      {
-        "id": "4095",
-        "name": "mike",
-        "age": 11
-      },
-      {
-        "id": "467b",
-        "name": "lisa",
-        "age": 15
-      }
-    ],
-    "courses": [
-      {
-        "id": "1",
-        "cname": "Introduction to Computer Science",
-        "credit": 3
-      },
-      {
-        "id": "2",
-        "cname": "Calculus I",
-        "credit": 4
-      },
-      {
-        "id": "3",
-        "cname": "Physics for Engineers",
-        "credit": 3
-      },
-      {
-        "id": "4",
-        "cname": "Organic Chemistry",
-        "credit": 3
-      },
-      {
-        "id": "5",
-        "cname": "Linear Algebra",
-        "credit": 3
-      },
-      {
-        "id": "6",
-        "cname": "Introduction to Psychology",
-        "credit": 2
-      },
-      {
-        "id": "7",
-        "cname": "Macroeconomics",
-        "credit": 3
-      },
-      {
-        "id": "8",
-        "cname": "History of Art",
-        "credit": 2
-      },
-      {
-        "id": "9",
-        "cname": "Principles of Marketing",
-        "credit": 3
-      },
-      {
-        "id": "10",
-        "cname": "Environmental Science",
-        "credit": 3
-      }
-    ]
-  }
+  "products": [
+    {
+      "id": "11",
+      "name": "Apple MacBook Pro",
+      "description": "애플의 최신 맥북 프로 노트북",
+      "category": "전자제품",
+      "price": 2500000,
+      "discount": 5
+    },
+    {
+      "id": "12",
+      "name": "Sony WH-1000XM5",
+      "description": "소니의 고성능 노이즈 캔슬링 헤드폰",
+      "category": "오디오",
+      "price": 450000,
+      "discount": 20
+    },
+    {
+      "id": "13",
+      "name": "Samsung Galaxy Tab S8",
+      "description": "삼성의 최신 태블릿",
+      "category": "전자제품",
+      "price": 900000,
+      "discount": 15
+    },
+    {
+      "id": "14",
+      "name": "Canon EOS R5",
+      "description": "캐논의 고해상도 미러리스 카메라",
+      "category": "카메라",
+      "price": 5000000,
+      "discount": 10
+    },
+    {
+      "id": "15",
+      "name": "LG Gram 16",
+      "description": "가볍고 휴대성이 뛰어난 LG 그램 노트북",
+      "category": "전자제품",
+      "price": 2100000,
+      "discount": 7
+    },
+    {
+      "id": "16",
+      "name": "Nike ZoomX Vaporfly",
+      "description": "나이키의 고성능 경주화",
+      "category": "패션",
+      "price": 220000,
+      "discount": 10
+    },
+    {
+      "id": "17",
+      "name": "Samsung QLED 4K TV",
+      "description": "삼성의 선명한 4K 화질의 QLED TV",
+      "category": "가전",
+      "price": 1500000,
+      "discount": 18
+    },
+    {
+      "id": "18",
+      "name": "Amazon Echo Dot",
+      "description": "아마존의 스마트 스피커",
+      "category": "스마트홈",
+      "price": 70000,
+      "discount": 10
+    },
+    {
+      "id": "19",
+      "name": "GoPro HERO11",
+      "description": "고프로의 최신 액션 카메라",
+      "category": "카메라",
+      "price": 450000,
+      "discount": 12
+    },
+    {
+      "id": "20",
+      "name": "Sony PlayStation 5",
+      "description": "소니의 차세대 게임 콘솔",
+      "category": "전자제품",
+      "price": 600000,
+      "discount": 5
+    },
+    {
+      "id": "21",
+      "name": "Apple Watch Series 9",
+      "description": "애플의 최신 스마트 워치",
+      "category": "패션",
+      "price": 500000,
+      "discount": 8
+    },
+    {
+      "id": "22",
+      "name": "Logitech MX Master 3",
+      "description": "로지텍의 인체공학적 무선 마우스",
+      "category": "전자제품",
+      "price": 120000,
+      "discount": 10
+    },
+    {
+      "id": "23",
+      "name": "Nest Thermostat",
+      "description": "에너지 절약을 위한 구글 네스트 온도 조절기",
+      "category": "스마트홈",
+      "price": 150000,
+      "discount": 15
+    },
+    {
+      "id": "24",
+      "name": "Bose QuietComfort Earbuds",
+      "description": "보스의 프리미엄 노이즈 캔슬링 이어버드",
+      "category": "오디오",
+      "price": 300000,
+      "discount": 18
+    },
+    {
+      "id": "25",
+      "name": "Dyson Supersonic",
+      "description": "다이슨의 강력한 헤어드라이어",
+      "category": "가전",
+      "price": 500000,
+      "discount": 10
+    }
+  ]
+}
