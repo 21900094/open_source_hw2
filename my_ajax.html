@@ -86,8 +86,8 @@
                 <div class="card-body">
                   <h5 class="card-title">${product.name}</h5>
                   <p class="card-content">상세 설명: ${product.description}</p>
-                  <p class="card-content">가격: ${product.price}분</p>
-                  <p class="card-content">할인율: ${product.discount}명</p>
+                  <p class="card-content">가격: ${product.price}원</p>
+                  <p class="card-content">할인율: ${product.discount}%</p>
                   <button class="btn btn-primary btn-sm" onclick="editProduct(${product.id})">수정</button>
                   <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.id})">삭제</button>
                 </div>
@@ -181,8 +181,9 @@
         editingId = null; 
       });
       window.deleteProduct = function (id) {
+        const encodedId = encodeURIComponent(id);
         $.ajax({
-          url: `http://localhost:3000/products/${id}`,
+          url: `http://localhost:3000/products/${encodedId}`,
           method: 'DELETE',
           success: function () {
             fetchProducts();
